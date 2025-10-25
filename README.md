@@ -1,6 +1,19 @@
 # Application de Gestion de Chantiers Immobiliers
 
-Application web complète pour la gestion des comptes et budgets de chantiers immobiliers, développée en PHP/MySQL.
+Application complète (web + mobile) pour la gestion des comptes et budgets de chantiers immobiliers.
+
+## 📱 Versions disponibles
+
+### Application Web (PHP/MySQL)
+Interface web complète avec toutes les fonctionnalités de gestion.
+
+### Application Mobile (React Native)
+Application mobile iOS/Android pour gérer vos chantiers en déplacement.
+**→ [Documentation mobile](mobile/README.md)**
+
+### API REST (PHP)
+API backend pour l'application mobile et intégrations tierces.
+**→ [Documentation API](api/README.md)**
 
 ## Fonctionnalités principales
 
@@ -137,13 +150,59 @@ Application web complète pour la gestion des comptes et budgets de chantiers im
 
 ⚠️ **Important** : Changez immédiatement le mot de passe administrateur par défaut !
 
+## Installation de l'application mobile
+
+### Prérequis mobile
+- Node.js 16+ et npm
+- Expo CLI (`npm install -g expo-cli`)
+- Application Expo Go sur votre smartphone OU émulateur iOS/Android
+
+### Installation rapide
+
+```bash
+# Installer les dépendances
+cd mobile
+npm install
+
+# Configurer l'URL de l'API
+# Éditez mobile/src/services/api.js
+# Changez API_BASE_URL avec l'IP de votre serveur
+
+# Démarrer l'application
+npm start
+```
+
+📖 **[Guide complet d'installation mobile](mobile/README.md)**
+
+📖 **[Documentation de l'API REST](api/README.md)**
+
 ## Structure des fichiers
 
 ```
 gestion-chantiers/
+├── api/                           # API REST pour mobile
+│   ├── README.md                  # Documentation de l'API
+│   ├── config.php                 # Configuration API et JWT
+│   ├── auth.php                   # Authentification
+│   ├── chantiers.php              # API chantiers
+│   ├── postes.php                 # API postes budgétaires
+│   ├── depenses.php               # API dépenses
+│   ├── financeurs.php             # API financeurs
+│   ├── financements.php           # API financements
+│   ├── versements.php             # API versements
+│   └── stats.php                  # API statistiques
+├── mobile/                        # Application React Native
+│   ├── README.md                  # Guide installation mobile
+│   ├── App.js                     # Point d'entrée
+│   ├── package.json               # Dépendances
+│   └── src/
+│       ├── screens/               # Écrans de l'application
+│       ├── services/              # Services API
+│       ├── context/               # Context React
+│       └── utils/                 # Utilitaires
 ├── assets/
 │   └── css/
-│       └── style.css              # Styles CSS de l'application
+│       └── style.css              # Styles CSS de l'application web
 ├── config/
 │   ├── config.php                 # Configuration générale
 │   └── database.php               # Classe de connexion à la BD
@@ -173,7 +232,8 @@ gestion-chantiers/
 ├── users.php                      # Gestion des utilisateurs (admin)
 ├── user_add.php                   # Ajouter un utilisateur (admin)
 ├── user_edit.php                  # Modifier un utilisateur (admin)
-└── README.md                      # Ce fichier
+├── README.md                      # Ce fichier
+└── INSTALL.md                     # Guide d'installation
 ```
 
 ## Utilisation
