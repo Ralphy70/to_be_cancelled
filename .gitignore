@@ -1,0 +1,31 @@
+# Configuration locale
+config/config.local.php
+
+# Fichiers de backup
+*.sql.backup
+*.sql.bak
+backup/
+
+# Fichiers temporaires
+*.tmp
+*.log
+*.cache
+
+# Fichiers de système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Uploads (si vous ajoutez un système d'upload de documents)
+uploads/*
+!uploads/.gitkeep
+
+# Composer (si vous ajoutez des dépendances)
+/vendor/
+composer.lock
