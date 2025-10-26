@@ -24,10 +24,13 @@ jobs:
           port: 21
           server-dir: /public_html/
           local-dir: ./
-          passive: true
           timeout: 60000
           exclude: |
             **/.git*
-            **/.github*
+            **/.github/**
             **/node_modules/**
+            **/.git/**
+            **/.gitignore
             **/*.yml
+            **/README.md
+            **/LICENSE
