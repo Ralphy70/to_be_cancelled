@@ -1,17 +1,33 @@
-- name: 📂 Sync files to FTP
-  uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-  with:
-    server: zouljore.com
-    username: chantiers
-    password: ${{ secrets.FTP_PROD }}
-    protocol: ftp
-    port: 21
-    server-dir: /public_html/
-    local-dir: ./ 
-    passive: true
-    timeout: 60000
-    exclude: |
-      **/.git*
-      **/.github*
-      **/node_modules/**
-      **/*.yml
+name: 🚀 Deploy Chantiers
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🌍 Deploy to chantiers.com
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 📂 Sync files to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: zouljore.com
+          username: chantiers
+          password: ${{ secrets.FTP_PROD }}
+          protocol: ftp
+          port: 21
+          server-dir: /public_html/
+          local-dir: ./
+          passive: true
+          timeout: 60000
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/**
+            **/*.yml
