@@ -8,7 +8,7 @@ echo "=================================================="
 echo ""
 
 DB_HOST="127.0.0.1"
-DB_NAME="gestion_chantiers"
+DB_NAME="chantiers"
 DB_USER="chantiers"
 DB_PASS="JhebGYv6n8nFF0lO0"
 

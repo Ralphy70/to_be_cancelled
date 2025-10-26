@@ -5,7 +5,7 @@
 
 // Configuration de la base de données
 define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'gestion_chantiers');
+define('DB_NAME', 'chantiers');
 define('DB_USER', 'chantiers');
 define('DB_PASS', 'JhebGYv6n8nFF0lO0');
 define('DB_CHARSET', 'utf8mb4');

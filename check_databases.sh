@@ -29,17 +29,15 @@ fi
 
 echo ""
 
-# Vérifier si 'gestion_chantiers' existe
-if mysql -h 127.0.0.1 -u $DB_USER -p$DB_PASS -e "USE gestion_chantiers;" 2>/dev/null; then
-    echo "✅ Base 'gestion_chantiers' existe"
-    TABLE_COUNT=$(mysql -h 127.0.0.1 -u $DB_USER -p$DB_PASS gestion_chantiers -e "SHOW TABLES;" 2>/dev/null | wc -l)
+# Vérifier si 'chantiers' (deuxième vérification)
+if mysql -h 127.0.0.1 -u $DB_USER -p$DB_PASS -e "USE chantiers;" 2>/dev/null; then
+    echo "✅ Base 'chantiers' existe (vérification 2)"
+    TABLE_COUNT=$(mysql -h 127.0.0.1 -u $DB_USER -p$DB_PASS chantiers -e "SHOW TABLES;" 2>/dev/null | wc -l)
     echo "   Nombre de tables : $((TABLE_COUNT - 1))"
 
     # Compter les users
-    USER_COUNT=$(mysql -h 127.0.0.1 -u $DB_USER -p$DB_PASS gestion_chantiers -e "SELECT COUNT(*) FROM users;" 2>/dev/null | tail -1)
+    USER_COUNT=$(mysql -h 127.0.0.1 -u $DB_USER -p$DB_PASS chantiers -e "SELECT COUNT(*) FROM users;" 2>/dev/null | tail -1)
     echo "   Nombre d'utilisateurs : $USER_COUNT"
-else
-    echo "❌ Base 'gestion_chantiers' n'existe PAS"
 fi
 
 echo ""

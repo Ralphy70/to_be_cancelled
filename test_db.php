@@ -6,7 +6,7 @@
 
 // Configuration
 $host = '127.0.0.1';
-$dbname = 'gestion_chantiers';
+$dbname = 'chantiers';
 $user = 'chantiers';
 $pass = 'JhebGYv6n8nFF0lO0';
 
